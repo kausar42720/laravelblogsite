@@ -22,16 +22,18 @@
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                <th>Sl No(s)</th>
-                                <th>Category Name</th>
-                                <th>Action</th>
+                                    <th>Sl No</th>
+                                    <th>Category Name</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                <td>01</td>
-                                <td> Blog</td>
-                                <td>
+                                <tr v-for=" (category,index) in getallcategory" :key="category.id">
+                                    <td>{{index+1}}</td>
+                                    <td> {{category.cat_name}} </td>
+                                    <td> {{category.created_at | timeformat}} </td>
+                                    <td>
                                     <a href="#" class="btn btn-success">Edit</a> | <a href="#" class="btn btn-danger">Delete</a>
                                 </td>
                                 </tr>
@@ -57,7 +59,19 @@
 
 <script>
 export default {
-    Name:"List"
+    Name:"List",
+    mounted(){
+        return this.$store.dispatch("allcategory")
+    },
+    computed:{
+        getallcategory(){
+         return this.$store.getters.getCategory
+        }
+        
+    },
+    methods:{
+        
+    }
 }
 </script>
 
