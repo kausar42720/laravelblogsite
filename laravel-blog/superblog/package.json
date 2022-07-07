@@ -25,7 +25,7 @@
     },
     "dependencies": {
         "admin-lte": "^3.0.0-alpha.2",
-        "moment": "^2.26.0",
+        "moment": "^2.29.4",
         "run": "^1.4.0",
         "sweetalert2": "^9.10.13",
         "vform": "^1.0.1",
